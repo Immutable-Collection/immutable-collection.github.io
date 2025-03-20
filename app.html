@@ -69,11 +69,41 @@
                 touch-action: none;
             }
         </style>
-        <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
     </head>
     <body>
         <div id="app"></div>
         <script src="/js/main.js"></script>
-        <script>setTimeout(() => eruda.init(),5000)</script>
+        <script>
+            (function () {
+                var src = '//cdn.jsdelivr.net/npm/eruda';
+                if (!/eruda=true/.test(window.location) && localStorage.getItem('active-eruda') != 'true') return;
+                document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+                document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>');
+            })();
+        </script>
+        <script>
+            /*
+            setTimeout(function(){
+                d3.selectAll("g.unit").data([{x: 100,y: 100}]).call(d3.drag()
+                .on("drag", function(e,d){
+                    if(e.x !== undefined){
+                        d.x = e.x;
+                        d.y = e.y;
+                    }
+                    console.log("data", d);
+                })
+                .on("start.update drag.update end.update", function(){
+                    let id = this.id;
+                    let current_transform = d3.select("g.unit#"+id).attr("transform");
+                    d3.select("g.unit#"+id).attr("transform",function(d){
+                        //console.log("inside update",d);
+                        //if(d.x !== undefined)
+                        return "scale (0.5 0.5) translate(" + (d.x * 2) + " " + (2 * d.y) + ")";
+                        //return current_transform;
+                    });
+                }));
+            },6000);
+            */
+        </script>
     </body>
 </html>
