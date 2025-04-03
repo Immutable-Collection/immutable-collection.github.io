@@ -3,107 +3,35 @@
     <head>
         <meta charset="utf-8" />
         <title>Insight draw</title>
-        <style>
-            .line {
-                fill: none;
-                stroke-linejoin: round;
-                stroke-linecap: round;
-            }
-            
-            #svg{
-                width: 100%;
-                height: 100vh;
-            }
-            
-            #main{
-                display: none;
-            }
-            
-            body{
-                margin: 0px;
-                overflow: hidden;
-            }
-            
-            #toolbar{
-                position: absolute;
-                top: 10px;
-                left: 10px;
-                display: flex;
-                flex-direction: column;
-                border: 1px dashed green;
-                padding: 5px;
-            }
-            
-            #toolbar a{
-                border: 1px solid black;
-                margin: 5px;
-                padding: 5px;
-                border-radius: 3px;
-            }
-            
-            #toolbar select{
-                border: 1px solid black;
-                margin: 5px;
-                padding: 5px;
-                border-radius: 3px;
-            }
-            /*
-            g {
-                outline: solid 3px blue;
-                outline-offset: 5px;
-            }
-
-            g:hover {
-                outline-color: red;
-            }
-            */
-            .unit{
-                pointer-events: bounding-box;
-            }
-            #mainsvg{
-                width: 100%;
-                height: 100vh;
-            }
-            #svg{
-                -ms-touch-action: none;
-                touch-action: none;
-            }
-        </style>
+        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <div id="app"></div>
-        <script src="/js/main.js"></script>
-        <script>
-            (function () {
-                var src = '//cdn.jsdelivr.net/npm/eruda';
-                if (!/eruda=true/.test(window.location) && localStorage.getItem('active-eruda') != 'true') return;
-                document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
-                document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>');
-            })();
-        </script>
-        <script>
-            /*
-            setTimeout(function(){
-                d3.selectAll("g.unit").data([{x: 100,y: 100}]).call(d3.drag()
-                .on("drag", function(e,d){
-                    if(e.x !== undefined){
-                        d.x = e.x;
-                        d.y = e.y;
-                    }
-                    console.log("data", d);
-                })
-                .on("start.update drag.update end.update", function(){
-                    let id = this.id;
-                    let current_transform = d3.select("g.unit#"+id).attr("transform");
-                    d3.select("g.unit#"+id).attr("transform",function(d){
-                        //console.log("inside update",d);
-                        //if(d.x !== undefined)
-                        return "scale (0.5 0.5) translate(" + (d.x * 2) + " " + (2 * d.y) + ")";
-                        //return current_transform;
-                    });
-                }));
-            },6000);
-            */
-        </script>
+      <div id="app"></div>
+      <script src="/js/main.js"></script>
+      <script src="js/eruda.js"></script>
+      <script>
+       /*
+          setTimeout(function(){
+          d3.selectAll("g.unit").data([{x: 100,y: 100}]).call(d3.drag()
+          .on("drag", function(e,d){
+          if(e.x !== undefined){
+          d.x = e.x;
+          d.y = e.y;
+          }
+          console.log("data", d);
+          })
+          .on("start.update drag.update end.update", function(){
+          let id = this.id;
+          let current_transform = d3.select("g.unit#"+id).attr("transform");
+          d3.select("g.unit#"+id).attr("transform",function(d){
+          //console.log("inside update",d);
+          //if(d.x !== undefined)
+          return "scale (0.5 0.5) translate(" + (d.x * 2) + " " + (2 * d.y) + ")";
+          //return current_transform;
+          });
+          }));
+          },6000);
+        */
+      </script>
     </body>
 </html>
